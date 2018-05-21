@@ -6,7 +6,7 @@ description: Description of survey data API
 
 {% api-method method="get" host="https://preignition.org/api" path="/v1/data/:programID/survey/:resourceID" %}
 {% api-method-summary %}
-Get Cakes
+Get Survey Data
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -16,24 +16,18 @@ This endpoint allows you to get survey data.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
+{% api-method-parameter name="resourceID" type="string" required=false %}
+The ID of the resource \(survey\)
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="programID" type="string" required=true %}
 ID of the program
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
-{% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-
 {% api-method-query-parameters %}
-{% api-method-parameter name="recipe" type="string" %}
-The API will do its best to find a cake matching the provided recipe.
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="gluten" type="boolean" %}
-Whether the cake should be gluten-free or not.
+{% api-method-parameter name="token" type="string" required=true %}
+A valid token to identify the user initiating the request
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% endapi-method-request %}
