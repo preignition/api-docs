@@ -2,7 +2,7 @@
 
 {% api-method method="get" host="https://preignition.org/api" path="/v1/program/:programID/member/:domain" %}
 {% api-method-summary %}
-Get Cakes
+Get Program Member
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -22,10 +22,16 @@ ID of the program to get member from
 {% endapi-method-path-parameters %}
 
 {% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
+{% api-method-parameter name="Authorization" type="string" required=false %}
+Authorization header in the form of "Bearer: tokenSring"  to identify the user initiating the request.
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="token" type="string" required=false %}
+A valid token to identify the user initiating the request
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -57,6 +63,10 @@ Could not find a cake matching this query.
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+{% hint style="warning" %}
+The request need either token Query Parameter or Header Authorization.
+{% endhint %}
 
 
 
